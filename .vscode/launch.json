@@ -1,0 +1,90 @@
+{
+    "configurations": [
+        {
+            "name": "Docker .NET Core Attach (Preview)",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Service1 with Kubernetes",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "bridge-to-kubernetes.compound",
+            "program": "${workspaceFolder}/Service1/bin/Debug/net5.0/Service1.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Service1",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://+:5000"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Service1",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildService1",
+            "program": "${workspaceFolder}/Service1/bin/Debug/net5.0/Service1.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Service1",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Service2",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildService2",
+            "program": "${workspaceFolder}/Service2/bin/Debug/net5.0/Service2.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Service2",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Service3",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildService3",
+            "program": "${workspaceFolder}/Service3/bin/Debug/net5.0/Service3.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Service3",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        }
+    ]
+}
