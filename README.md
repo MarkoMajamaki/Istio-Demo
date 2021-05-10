@@ -36,10 +36,14 @@ sh deploy/istio_addons.sh
 ```
 
 ## Test
+```bash
 http://localhost:8080/service1/test
 http://localhost:8080/service1/test/service2
 http://localhost:8080/service1/test/service3
 http://localhost:8080/service2/test
+```
 
-# Should not work! Access allowed only throught service1!
+Should not work! Access allowed only throught service1!
+```bash
 http://localhost:8080/service3/test
+```
